@@ -28,3 +28,5 @@ appscan-config.xml
 appscan-config.xml
 Output/*
 logs/*
+zowe.config.user.json
+zowe.schema.json
