@@ -61,7 +61,7 @@ profiles:
   - name: dbb-userbuild
     type: dbb
     settings:
-      application: CBSA
+      application: cbsa
       command: "$DBB_HOME/bin/groovyz -DBB_DAEMON_HOST 127.0.0.1 -DBB_DAEMON_PORT 7380 "
       buildScriptPath: "/var/work/dbb-zappbuild/build.groovy" 
       buildScriptArgs:
@@ -72,7 +72,8 @@ profiles:
         - "--outDir ${zopeneditor.userbuild.userSettings.dbbLogDir}"
         - "--verbose"
       additionalDependencies:
-        - ${application}"/application-conf - "zapp*"
+        - "application-conf"
+        - "zapp*"
       logFilePatterns:
         - "${buildFile.basename}.log" 
         - "BuildReport.*"
