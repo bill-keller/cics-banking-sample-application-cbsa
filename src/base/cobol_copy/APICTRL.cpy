@@ -4,6 +4,7 @@
       *                                                                *
       *                                                                *
       ******************************************************************
+          03 API-OPERATION            PIC X(4).
           03 API-CUSTNO               PIC X(10).
           03 API-NAME                 PIC X(60).
           03 API-ADDR                 PIC X(160).

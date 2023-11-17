@@ -30,7 +30,6 @@
        01 UPDCUST-COMMAREA.
            COPY UPDCUST.
 
-       01 operation                      PIC X(1) VALUE 'U'.
       *----------------------------------------------------------------*
 
       ******************************************************************
@@ -38,7 +37,7 @@
       ******************************************************************
        LINKAGE SECTION.
        01 DFHCOMMAREA.
-           COPY APIADDR.
+           COPY APICTRL.
 
       ******************************************************************
       *    P R O C E D U R E S
@@ -47,28 +46,26 @@
        PREMIERE SECTION.
        P010.
 
-
-
-           EVALUATE operation 
-               WHEN 'U'
+           EVALUATE API-OPERATION
+               WHEN 'UPDT'
       *        Call routine to perform for update customer
-                   PERFORM CHANGE-ADDRESS 
+                   PERFORM CHANGE-ADDRESS
 
-               WHEN 'C'
+               WHEN 'CREA'
       *        Call routine to perform for create customer
-                   PERFORM CUST-CREATE 
+                   PERFORM CUST-CREATE
 
-               WHEN 'R'
+               WHEN 'READ'
       *        Call routine to perform customer lookup
-                   PERFORM CUST-LOOKUP 
+                   PERFORM CUST-LOOKUP
 
-               WHEN 'D'
+               WHEN 'DELT'
       *        Call routine to delete customer
-                   PERFORM CUST-DELETE 
+                   PERFORM CUST-DELETE
 
                WHEN OTHER
       *        Request is not recognised or supported
-                   PERFORM GET-ME-OUT-OF-HERE 
+                   PERFORM GET-ME-OUT-OF-HERE
 
            END-EVALUATE 
 
