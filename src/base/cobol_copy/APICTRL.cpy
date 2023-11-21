@@ -8,3 +8,5 @@
           03 API-CUSTNO               PIC X(10).
           03 API-NAME                 PIC X(60).
           03 API-ADDR                 PIC X(160).
+          03 API-UPD-SUCCESS          PIC X.
+          03 API-UPD-FAIL-CD          PIC X.

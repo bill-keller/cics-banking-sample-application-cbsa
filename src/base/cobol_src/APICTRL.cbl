@@ -67,7 +67,7 @@
       *        Request is not recognised or supported
                    PERFORM GET-ME-OUT-OF-HERE
 
-           END-EVALUATE 
+           END-EVALUATE
 
       * Return to caller
            PERFORM GET-ME-OUT-OF-HERE.
@@ -98,7 +98,9 @@
 
            move COMM-ADDR to API-ADDR
            move COMM-CUSTNO  to API-CUSTNO
-           move COMM-NAME to API-NAME.
+           move COMM-NAME to API-NAME
+           move COMM-UPD-SUCCESS to API-UPD-SUCCESS 
+           move COMM-UPD-FAIL-CD to API-UPD-FAIL-CD. 
 
        AD999.
            EXIT.
@@ -125,7 +127,9 @@
 
            move COMM-ADDR to API-ADDR
            move COMM-CUSTNO  to API-CUSTNO
-           move COMM-NAME to API-NAME.
+           move COMM-NAME to API-NAME
+           move COMM-UPD-SUCCESS to API-UPD-SUCCESS 
+           move COMM-UPD-FAIL-CD to API-UPD-FAIL-CD. 
 
        AD999.
            EXIT.
@@ -145,14 +149,16 @@
       *    Link to UPDCUST
       *
            EXEC CICS LINK
-              PROGRAM('DELCUS')
+              PROGRAM('DELCUST')
               COMMAREA(UPDCUST-COMMAREA )
               SYNCONRETURN
            END-EXEC.
 
            move COMM-ADDR to API-ADDR
            move COMM-CUSTNO  to API-CUSTNO
-           move COMM-NAME to API-NAME.
+           move COMM-NAME to API-NAME
+           move COMM-UPD-SUCCESS to API-UPD-SUCCESS 
+           move COMM-UPD-FAIL-CD to API-UPD-FAIL-CD. 
 
        AD999.
            EXIT.
@@ -179,7 +185,9 @@
 
            move COMM-ADDR to API-ADDR
            move COMM-CUSTNO  to API-CUSTNO
-           move COMM-NAME to API-NAME.
+           move COMM-NAME to API-NAME
+           move COMM-UPD-SUCCESS to API-UPD-SUCCESS 
+           move COMM-UPD-FAIL-CD to API-UPD-FAIL-CD. 
 
        AD999.
            EXIT.
