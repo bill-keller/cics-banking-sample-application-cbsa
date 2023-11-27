@@ -149,7 +149,7 @@
       *    Link to UPDCUST
       *
            EXEC CICS LINK
-              PROGRAM('DELCUST')
+              PROGRAM('DELCUS')
               COMMAREA(UPDCUST-COMMAREA )
               SYNCONRETURN
            END-EXEC.
