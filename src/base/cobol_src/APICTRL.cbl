@@ -90,11 +90,11 @@
 
       *    Link to UPDCUST
       *
-      *    EXEC CICS LINK
-      *       PROGRAM('UPDCUST')
-      *       COMMAREA(UPDCUST-COMMAREA )
-      *       SYNCONRETURN
-      *    END-EXEC.
+           EXEC CICS LINK
+              PROGRAM('UPDCUST')
+              COMMAREA(UPDCUST-COMMAREA )
+              SYNCONRETURN
+           END-EXEC.
 
            move COMM-ADDR to API-ADDR
            move COMM-CUSTNO  to API-CUSTNO
