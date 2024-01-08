@@ -1,0 +1,151 @@
+openapi: 3.0.1
+info:
+  title: updcust
+  description: Update a customer's details 
+  version: 1.0.0
+servers:
+- url: /
+paths:
+  /customer:
+    put:
+      tags:
+      - customer
+      summary: Update customer record
+      description: Uses the APICTRL CICS COMMAREA z/OS asset
+      operationId: putCScustupd
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      requestBody:
+        description: request body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/putCScustupd_request'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/putCScustupd_response_200'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'         
+        '404':
+          description: Customer Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'                      
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'        
+      x-codegen-request-body-name: putCScustupd_request
+  /customer/{custno}:
+    get:
+      tags:
+      - customer
+      summary: Read customer record
+      description: Uses the INQCUST CICS COMMAREA z/OS asset
+      operationId: getCScustinq
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: custno
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getCScustinq_response_200'     
+        '404':
+          description: Customer Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'                      
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'        
+      x-codegen-request-body-name: putCScustupd_request
+components:
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+      example:
+        message: A message describing the error  
+    putCScustupd_request:
+      type: object
+      properties:
+        UpdCust:
+          type: object
+          properties:
+            CustomerNumber:
+              maxLength: 10
+              type: string
+            Name:
+              maxLength: 60
+              type: string
+            Address:
+              maxLength: 160
+              type: string
+    putCScustupd_response_200:
+      type: object
+      properties:
+        UpdCust:
+          type: object
+          properties:
+            CustomerNumber:
+              maxLength: 10
+              type: string
+            Name:
+              maxLength: 60
+              type: string
+            Address:
+              maxLength: 160
+              type: string
+            UpdateSuccess:
+              maxLength: 1
+              type: string          
+    getCScustinq_response_200:
+      type: object
+      properties:
+        UpdCust:
+          type: object
+          properties:
+            CustomerNumber:
+              maxLength: 10
+              type: string
+            Name:
+              maxLength: 60
+              type: string
+            Address:
+              maxLength: 160
+              type: string
+            InquirySuccess:
+              maxLength: 1
+              type: string        
+x-original-swagger-version: "2.0"

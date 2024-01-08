@@ -30,6 +30,10 @@
        01 UPDCUST-COMMAREA.
            COPY UPDCUST.
 
+      * Commarea structure for INQCUST
+       01 INQCUST-COMMAREA.
+           COPY INQCUST.
+
       *----------------------------------------------------------------*
 
       ******************************************************************
@@ -99,8 +103,8 @@
            move COMM-ADDR to API-ADDR
            move COMM-CUSTNO  to API-CUSTNO
            move COMM-NAME to API-NAME
-           move COMM-UPD-SUCCESS to API-UPD-SUCCESS 
-           move COMM-UPD-FAIL-CD to API-UPD-FAIL-CD. 
+           move COMM-UPD-SUCCESS to API-SUCCESS 
+           move COMM-UPD-FAIL-CD to API-FAIL-CD. 
 
        AD999.
            EXIT.
@@ -112,24 +116,22 @@
        CUST-LOOKUP SECTION.
        AD010.
 
-           INITIALIZE UPDCUST-COMMAREA
-           MOVE API-ADDR to COMM-ADDR
-           move API-NAME to COMM-NAME
-           move API-CUSTNO to COMM-CUSTNO
+           INITIALIZE INQCUST-COMMAREA
+           move API-CUSTNO to INQCUST-CUSTNO
 
       *    Link to UPDCUST
       *
            EXEC CICS LINK
               PROGRAM('INQCUST')
-              COMMAREA(UPDCUST-COMMAREA )
+              COMMAREA(INQCUST-COMMAREA )
               SYNCONRETURN
            END-EXEC.
 
-           move COMM-ADDR to API-ADDR
-           move COMM-CUSTNO  to API-CUSTNO
-           move COMM-NAME to API-NAME
-           move COMM-UPD-SUCCESS to API-UPD-SUCCESS 
-           move COMM-UPD-FAIL-CD to API-UPD-FAIL-CD. 
+           move INQCUST-ADDR to API-ADDR
+           move INQCUST-CUSTNO to API-CUSTNO
+           move INQCUST-NAME to API-NAME
+           move INQCUST-INQ-SUCCESS to API-SUCCESS 
+           move INQCUST-INQ-FAIL-CD to API-FAIL-CD. 
 
        AD999.
            EXIT.
@@ -157,8 +159,8 @@
            move COMM-ADDR to API-ADDR
            move COMM-CUSTNO  to API-CUSTNO
            move COMM-NAME to API-NAME
-           move COMM-UPD-SUCCESS to API-UPD-SUCCESS 
-           move COMM-UPD-FAIL-CD to API-UPD-FAIL-CD. 
+           move COMM-UPD-SUCCESS to API-SUCCESS 
+           move COMM-UPD-FAIL-CD to API-FAIL-CD. 
 
        AD999.
            EXIT.
@@ -186,8 +188,8 @@
            move COMM-ADDR to API-ADDR
            move COMM-CUSTNO  to API-CUSTNO
            move COMM-NAME to API-NAME
-           move COMM-UPD-SUCCESS to API-UPD-SUCCESS 
-           move COMM-UPD-FAIL-CD to API-UPD-FAIL-CD. 
+           move COMM-UPD-SUCCESS to API-SUCCESS 
+           move COMM-UPD-FAIL-CD to API-FAIL-CD. 
 
        AD999.
            EXIT.

@@ -2,7 +2,6 @@
       *                                                                *
       *  Copyright IBM Corp. 2023                                      *
       *                                                                *
-      *                                                                *
       ******************************************************************
           03 INQCUST-EYE                  PIC X(4).
           03 INQCUST-SCODE                PIC X(6).
