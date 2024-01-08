@@ -147,5 +147,70 @@ components:
               type: string
             InquirySuccess:
               maxLength: 1
-              type: string        
+              type: string     
+    getCScustenq_response_full_200:
+      type: object
+      properties:
+        InqCustZ:
+          type: object
+          properties:
+            InqCustEye:
+              maxLength: 4
+              type: string
+            InqCustScode:
+              maxLength: 6
+              type: string
+            InqCustCustno:
+              maximum: 9999999999
+              minimum: 0
+              type: integer
+            InqCustName:
+              maxLength: 60
+              type: string
+            InqCustAddr:
+              maxLength: 160
+              type: string
+            InqCustDob:
+              type: object
+              properties:
+                InqCustDobDd:
+                  maximum: 99
+                  minimum: 0
+                  type: integer
+                InqCustDobMm:
+                  maximum: 99
+                  minimum: 0
+                  type: integer
+                InqCustDobYyyy:
+                  maximum: 9999
+                  minimum: 0
+                  type: integer
+            InqCustCreditScore:
+              maximum: 999
+              minimum: 0
+              type: integer
+            InqCustCsReviewDt:
+              type: object
+              properties:
+                InqCustCsReviewDd:
+                  maximum: 99
+                  minimum: 0
+                  type: integer
+                InqCustCsReviewMm:
+                  maximum: 99
+                  minimum: 0
+                  type: integer
+                InqCustCsReviewYyyy:
+                  maximum: 9999
+                  minimum: 0
+                  type: integer
+            InqCustInqSuccess:
+              maxLength: 1
+              type: string
+            InqCustInqFailCd:
+              maxLength: 1
+              type: string
+            InqCustPcbPointer:
+              maxLength: 4
+              type: string   
 x-original-swagger-version: "2.0"
