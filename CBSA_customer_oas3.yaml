@@ -148,7 +148,7 @@ components:
             InquirySuccess:
               maxLength: 1
               type: string     
-    getCScustenq_response_full_200:
+    getCScustinq_response_full_200:
       type: object
       properties:
         InqCustZ:
